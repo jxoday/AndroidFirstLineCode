@@ -7,6 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.androidfirstlinecode.fragment.FragmentActivity;
 
+/**
+ * jinXin
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
