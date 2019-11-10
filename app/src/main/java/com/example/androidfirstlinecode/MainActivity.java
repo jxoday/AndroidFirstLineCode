@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.androidfirstlinecode.fragment.FragmentActivity;
 
 /**
- * jinXin
+ * @author JinXin
  */
 public class MainActivity extends AppCompatActivity {
 
