@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragment.FragmentLifecycleActivity"></activity>
-        <activity android:name=".fragment.FragmentActivity"></activity>
-        <activity android:name=".widget.recycleview.demo.ChatActivity"></activity>
+        <activity android:name=".fragment.examples_news.NewsContentActivity"/>
+        <activity android:name=".fragment.FragmentLifecycleActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".widget.recycleview.demo.ChatActivity" />
         <activity android:name=".widget.recycleview.RecycleViewActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
