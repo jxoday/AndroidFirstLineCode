@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <fragment
-       android:id="@+id/news_title_fragment"
-       android:name="com.example.androidfirstlinecode.fragment.examples_news.NewsTitleFragment"
-       android:layout_width="0dp"
-       android:layout_height="match_parent"
-       android:layout_weight="1"/>
+    <fragment
+        android:id="@+id/news_title_fragment"
+        android:name="com.example.androidfirstlinecode.fragment.examples_news.NewsTitleFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 
     <FrameLayout
         android:id="@+id/news_content_layout"
