@@ -4,9 +4,8 @@
     package="com.example.androidfirstlinecode">
 
     <!-- 访问系统网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 监听系统开机广播 -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 监听系统开机广播 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -30,16 +29,17 @@
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".widget.recycleview.demo.ChatActivity" />
         <activity android:name=".widget.recycleview.RecycleViewActivity" />
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
 
         <!-- 静态注册广播接收器 -->
         <receiver
             android:name=".broadcast.BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
+
             <!-- 发送监听系统开启广播 -->
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
@@ -49,6 +49,17 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
+                <action android:name="com.example.broadcasttest.MY_BROADCAST" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 有序广播接收器
+             priority：优先级; 范围-1000~1000 -->
+        <receiver
+            android:name=".broadcast.AnotherBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="100">
                 <action android:name="com.example.broadcasttest.MY_BROADCAST"/>
             </intent-filter>
         </receiver>

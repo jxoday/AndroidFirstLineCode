@@ -29,18 +29,23 @@ public class BroadcastTestActivity extends AppCompatActivity {
      * 动态注册广播接收器监听网络变化
      */
     private NetworkChangeReceiver networkChangeReceiver;
+    private Button btnSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_broadcast_test);
 
+        btnSend = findViewById(R.id.btn_send_custom_broadcast);
 
         // 动态注册广播接收器监听网络变化
 //        dynamicBroadcastReceiver();
 
         // 发送自定义广播（标准广播）
-        sendCustomBroadcast();
+//        sendCustomBroadcast();
+
+        // 发送有序广播
+        sendOrderedBroadcast();
     }
 
     private void dynamicBroadcastReceiver() {
@@ -56,7 +61,6 @@ public class BroadcastTestActivity extends AppCompatActivity {
     }
 
     private void sendCustomBroadcast() {
-        Button btnSend = findViewById(R.id.btn_send_custom_broadcast);
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,13 +70,32 @@ public class BroadcastTestActivity extends AppCompatActivity {
                 // 构建Intent对象，传入要发生的广播
                 Intent intent = new Intent();
                 intent.setAction("com.example.broadcasttest.MY_BROADCAST");
-                // Android8.0已经对隐式广播做了限制 当发送广播的时候，指定广播接收者的包名，即发送显式广播
-                intent.setPackage(getPackageName());
+                // 在Android8.0上突破隐式广播的限制
+                intent.addFlags(0x01000000);
                 // 调用Context的sendBroadcast发送
                 sendBroadcast(intent);
 
                 // 这样所有监听com.example.broadcasttest.MY_BROADCAST这条广播的广播接收器就会收到消息
                 // 此时发出去的广播就是一条标准广播
+            }
+        });
+    }
+
+    private void sendOrderedBroadcast(){
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 发送有序广播逻辑
+                Log.d(TAG, "sendOrderedBroadcast: ");
+
+                // 构建Intent对象，传入要发生的广播
+                Intent intent = new Intent("com.example.broadcasttest.MY_BROADCAST");
+                // 在Android8.0上突破隐式广播的限制
+                intent.addFlags(0x01000000);
+                // 调用Context的sendOrderedBroadcast发送
+                // 两个参数 第一个：Intent； 第二个：权限相关字符串
+                sendOrderedBroadcast(intent, null);
+
             }
         });
     }
