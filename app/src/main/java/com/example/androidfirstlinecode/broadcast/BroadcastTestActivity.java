@@ -2,8 +2,9 @@ package com.example.androidfirstlinecode.broadcast;
 
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,7 +24,7 @@ import com.example.androidfirstlinecode.R;
  */
 public class BroadcastTestActivity extends AppCompatActivity {
 
-
+    private static final String TAG = "BroadcastTestActivity";
     /**
      * 动态注册广播接收器监听网络变化
      */
@@ -60,9 +61,13 @@ public class BroadcastTestActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 发送自定义广播逻辑
+                Log.d(TAG, "sendCustomBroadcast: ");
 
                 // 构建Intent对象，传入要发生的广播
-                Intent intent = new Intent("com.example.broadcasttest.MY_BROADCAST");
+                Intent intent = new Intent();
+                intent.setAction("com.example.broadcasttest.MY_BROADCAST");
+                // Android8.0已经对隐式广播做了限制 当发送广播的时候，指定广播接收者的包名，即发送显式广播
+                intent.setPackage(getPackageName());
                 // 调用Context的sendBroadcast发送
                 sendBroadcast(intent);
 
