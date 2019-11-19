@@ -1,8 +1,11 @@
 package com.example.androidfirstlinecode.broadcast;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.androidfirstlinecode.R;
 
@@ -31,6 +34,15 @@ public class BroadcastTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_broadcast_test);
 
+
+        // 动态注册广播接收器监听网络变化
+//        dynamicBroadcastReceiver();
+
+        // 发送自定义广播（标准广播）
+        sendCustomBroadcast();
+    }
+
+    private void dynamicBroadcastReceiver() {
         // 隐式调用的IntentFilter匹配规则
         IntentFilter intentFilter = new IntentFilter();
         // action是一个字符串，系统预定义了一些action
@@ -42,9 +54,32 @@ public class BroadcastTestActivity extends AppCompatActivity {
         registerReceiver(networkChangeReceiver, intentFilter);
     }
 
+    private void sendCustomBroadcast() {
+        Button btnSend = findViewById(R.id.btn_send_custom_broadcast);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 发送自定义广播逻辑
+
+                // 构建Intent对象，传入要发生的广播
+                Intent intent = new Intent("com.example.broadcasttest.MY_BROADCAST");
+                // 调用Context的sendBroadcast发送
+                sendBroadcast(intent);
+
+                // 这样所有监听com.example.broadcasttest.MY_BROADCAST这条广播的广播接收器就会收到消息
+                // 此时发出去的广播就是一条标准广播
+            }
+        });
+    }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver(networkChangeReceiver);
+
+        if (networkChangeReceiver != null) {
+            unregisterReceiver(networkChangeReceiver);
+        }
+
     }
 }
