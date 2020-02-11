@@ -18,6 +18,6 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "onReceive: ");
-        Toast.makeText(context, "received in MyBrodcastReceive", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "自定义广播", Toast.LENGTH_SHORT).show();
     }
 }

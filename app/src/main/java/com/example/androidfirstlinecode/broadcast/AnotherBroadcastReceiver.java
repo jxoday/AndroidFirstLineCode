@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 /**
+ * 验证有序广播
  * @author JinXin
  */
 public class AnotherBroadcastReceiver extends BroadcastReceiver {

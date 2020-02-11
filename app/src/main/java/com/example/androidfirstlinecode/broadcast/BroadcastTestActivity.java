@@ -48,6 +48,9 @@ public class BroadcastTestActivity extends AppCompatActivity {
         sendOrderedBroadcast();
     }
 
+    /**
+     * 动态注册广播接收器监听网络变化
+     */
     private void dynamicBroadcastReceiver() {
         // 隐式调用的IntentFilter匹配规则
         IntentFilter intentFilter = new IntentFilter();
@@ -60,6 +63,9 @@ public class BroadcastTestActivity extends AppCompatActivity {
         registerReceiver(networkChangeReceiver, intentFilter);
     }
 
+    /**
+     * 发送自定义广播
+     */
     private void sendCustomBroadcast() {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +87,9 @@ public class BroadcastTestActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 发送有序广播
+     */
     private void sendOrderedBroadcast(){
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override

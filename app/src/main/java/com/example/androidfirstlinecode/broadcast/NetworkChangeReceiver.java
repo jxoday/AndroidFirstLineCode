@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.widget.Toast;
 
 /**
+ * 网络状态监听
  * 动态注册的广播接收器
  * @author JinXin
  */
