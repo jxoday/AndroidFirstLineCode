@@ -4,7 +4,8 @@
     package="com.example.androidfirstlinecode">
 
     <!-- 访问系统网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 监听系统开机广播 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 监听系统开机广播 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -15,14 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".broadcast.example_local_broadcast.BroadcastMainActivity" />
 
-        <activity android:name=".broadcast.BroadcastTestActivity">
+        <activity android:name=".broadcast.example_local_broadcast.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".broadcast.BroadcastTestActivity"/>
         <activity android:name=".fragment.examples_news.NewMainActivity" />
         <activity android:name=".fragment.examples_news.NewsContentActivity" />
         <activity android:name=".fragment.FragmentLifecycleActivity" />
@@ -30,6 +33,10 @@
         <activity android:name=".widget.recycleview.demo.ChatActivity" />
         <activity android:name=".widget.recycleview.RecycleViewActivity" />
         <activity android:name=".MainActivity" />
+        <receiver
+            android:name=".broadcast.example_local_broadcast.ForceOfflineReceiver"
+            android:enabled="true"
+            android:exported="true"/>
 
         <!-- 静态注册广播接收器 -->
         <receiver
@@ -53,14 +60,13 @@
             </intent-filter>
         </receiver>
 
-        <!-- 有序广播接收器
-             priority：优先级; 范围-1000~1000 -->
+        <!-- 有序广播接收器 priority：优先级; 范围-1000~1000 -->
         <receiver
             android:name=".broadcast.AnotherBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter android:priority="100">
-                <action android:name="com.example.broadcasttest.MY_BROADCAST"/>
+                <action android:name="com.example.broadcasttest.MY_BROADCAST" />
             </intent-filter>
         </receiver>
     </application>

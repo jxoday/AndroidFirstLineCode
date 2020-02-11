@@ -3,6 +3,7 @@ package com.example.androidfirstlinecode.broadcast;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -29,7 +30,13 @@ public class BroadcastTestActivity extends AppCompatActivity {
      * 动态注册广播接收器监听网络变化
      */
     private NetworkChangeReceiver networkChangeReceiver;
+
+    /**
+     * 发送广播按钮
+     */
     private Button btnSend;
+
+    private LocalBroadcastManager localBroadcastManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +52,10 @@ public class BroadcastTestActivity extends AppCompatActivity {
 //        sendCustomBroadcast();
 
         // 发送有序广播
-        sendOrderedBroadcast();
+//        sendOrderedBroadcast();
+
+        // 本地广播
+        initLocalBroadcast();
     }
 
     /**
@@ -105,6 +115,32 @@ public class BroadcastTestActivity extends AppCompatActivity {
                 // 两个参数 第一个：Intent； 第二个：权限相关字符串
                 sendOrderedBroadcast(intent, null);
 
+            }
+        });
+    }
+
+    /**
+     * 本地广播
+     *
+     * 本地广播无法通过静态注册的方式来接收
+     * 静态注册主要是为了让程序在未启动的情况下也能接受到广播
+     * 发送本地广播时，程序肯定是启动了，所以不需要静态注册
+     */
+    private void initLocalBroadcast() {
+        // 获取本地广播管理实例
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.example.broadcasttest.LOCAL_BROADCAST");
+        LocalReceiver localReceiver = new LocalReceiver();
+        // 注册本地广播监听器
+        localBroadcastManager.registerReceiver(localReceiver,intentFilter);
+
+        // 发送本地广播
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.example.broadcasttest.LOCAL_BROADCAST");
+                localBroadcastManager.sendBroadcast(intent);
             }
         });
     }

@@ -12,6 +12,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="发送自定义广播"/>
+        android:text="发送广播"/>
 
 </android.support.constraint.ConstraintLayout>
