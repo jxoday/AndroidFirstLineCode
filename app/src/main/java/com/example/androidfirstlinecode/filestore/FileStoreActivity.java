@@ -27,7 +27,7 @@ import java.io.OutputStreamWriter;
  *
  * @author JinXin
  */
-public class FilePersistenceTestActivity extends AppCompatActivity {
+public class FileStoreActivity extends AppCompatActivity {
 
     private static final String TAG = "FilePersistenceTest";
 
@@ -36,7 +36,7 @@ public class FilePersistenceTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_file_persistence_test);
+        setContentView(R.layout.activity_file_store);
 
         editFilePersistence = findViewById(R.id.edit_file);
 
