@@ -19,10 +19,20 @@ public class DatabaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database);
 
-        // 新建数据库
-        myDatabaseHelper = new MyDatabaseHelper(this, "BookStore.db", null ,1);
-
         Button createDatabaseBtn = findViewById(R.id.btn_create_database);
+
+        // 新建数据库
+//        myDatabaseHelper = new MyDatabaseHelper(this, "BookStore.db", null ,1);
+//
+//        createDatabaseBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                myDatabaseHelper.getWritableDatabase();
+//            }
+//        });
+
+        // 升级数据库
+        myDatabaseHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
         createDatabaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

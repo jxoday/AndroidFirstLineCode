@@ -38,6 +38,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             "pages integer, " +
             "name text)";
 
+    public static final String CREATE_CATEGORY = "create table Category (" +
+            "id integer primary key autoincrement, " +
+            "category_name text, " +
+            "category_code integer)";
+
     /**
      * @param context 上下文
      * @param name 数据库名称
@@ -57,6 +62,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // execSQL执行建表语句
         db.execSQL(CREATE_BOOK);
+        db.execSQL(CREATE_CATEGORY);
         Toast.makeText(mContext, "创建表", Toast.LENGTH_LONG).show();
     }
 
@@ -68,6 +74,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("drop table if exists Book");
+        onCreate(db);
     }
 }
