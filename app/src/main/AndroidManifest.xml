@@ -16,16 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".filestore.SharedPreferencesActivity">
+        <activity android:name=".filestore.SharedPreferencesActivity" />
+        <activity android:name=".filestore.FileStoreActivity"/>
+        <activity android:name=".broadcast.example_local_broadcast.BroadcastMainActivity" />
+        <activity android:name=".broadcast.example_local_broadcast.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".filestore.FileStoreActivity"/>
-        <activity android:name=".broadcast.example_local_broadcast.BroadcastMainActivity" />
-        <activity android:name=".broadcast.example_local_broadcast.LoginActivity" />
         <activity android:name=".broadcast.BroadcastTestActivity"/>
         <activity android:name=".fragment.examples_news.NewMainActivity" />
         <activity android:name=".fragment.examples_news.NewsContentActivity" />
