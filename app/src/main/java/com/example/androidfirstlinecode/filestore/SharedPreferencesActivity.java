@@ -50,5 +50,21 @@ public class SharedPreferencesActivity extends AppCompatActivity {
                 Toast.makeText(SharedPreferencesActivity.this, "SharedPreferences存储成功", Toast.LENGTH_LONG).show();
             }
         });
+
+        Button restoreBtn = findViewById(R.id.btn_restore_data);
+        restoreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // SharedPreferences 读取数据
+                SharedPreferences sharedPreferences = getSharedPreferences("data", MODE_PRIVATE);
+                String name = sharedPreferences.getString("name","");
+                int age = sharedPreferences.getInt("age", 0);
+                boolean married = sharedPreferences.getBoolean("married", false);
+                Toast.makeText(SharedPreferencesActivity.this, "读取SharedPreferences数据 \n"
+                        + "name：" + name + "\n"
+                        + "age：" + age + "\n"
+                        + "married：" + married, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

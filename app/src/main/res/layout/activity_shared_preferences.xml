@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".filestore.SharedPreferencesActivity">
 
     <Button
@@ -11,5 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save data"/>
+
+    <Button
+        android:id="@+id/btn_restore_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restore data"/>
 
 </LinearLayout>
