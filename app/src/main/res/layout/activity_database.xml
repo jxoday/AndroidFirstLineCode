@@ -19,4 +19,16 @@
         android:layout_height="wrap_content"
         android:text="Add data"/>
 
+    <Button
+        android:id="@+id/btn_update_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update data"/>
+
+    <Button
+        android:id="@+id/btn_delete_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="delete data"/>
+
 </LinearLayout>
