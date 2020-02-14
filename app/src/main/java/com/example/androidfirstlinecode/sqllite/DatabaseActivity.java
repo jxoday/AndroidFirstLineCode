@@ -140,5 +140,12 @@ public class DatabaseActivity extends AppCompatActivity {
                 Toast.makeText(DatabaseActivity.this, "查询数据完成", Toast.LENGTH_LONG).show();
             }
         });
+
+        // 使用SQL操作数据库
+        // 添加数据     db.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)", new String[] { "JinXinDatabaseTest", "JinXin", "666", "66.66"});
+        //             db.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)", new String[] { "JinXinDatabaseTest2", "JinXin2", "888", "88.88"});
+        // 更新数据     db.execSQL("update Book set price = ? where name = ?", new String[] {"10.99", "JinXinDatabaseTest2"});
+        // 删除数据     db.execSQL("delete from Book where pages > ?", new String[] {"500"});
+        // 查询数据     db.rawQuery("select * from Book", null);
     }
 }
