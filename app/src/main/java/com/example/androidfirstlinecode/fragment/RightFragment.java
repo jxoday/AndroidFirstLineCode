@@ -22,7 +22,7 @@ public class RightFragment extends Fragment {
     // 当RightFragment第一次被加载到屏幕上时，会依次执行onAttach（）→ onCreate（）→ onCreateView（）→ onActivityCreated（）→ onStart（）→ onResume（）
 
     /**
-     * 当碎片和活动建立关联的时候调用
+     * 当 Fragment 和 Activity 建立关联时调用
      * @param context 上下文
      */
     @Override
@@ -42,7 +42,7 @@ public class RightFragment extends Fragment {
     }
 
     /**
-     * 为碎片创建视图（加载布局）时调用
+     * 当 fragment 创建视图调用，在onCreate 之后
      * @param inflater
      * @param container
      * @param savedInstanceState
@@ -57,7 +57,7 @@ public class RightFragment extends Fragment {
     }
 
     /**
-     * 确保与碎片相关联的活动一定已经创建完毕的时候调用
+     * 当与 Fragment 相关联的Activity 完成 onCreate()之后调用
      * @param savedInstanceState
      */
     @Override
@@ -91,7 +91,7 @@ public class RightFragment extends Fragment {
     }
 
     /**
-     * 当与碎片关联的试图被移除的时候调用
+     * 在 Fragment 中的布局被移除时调用
      */
     @Override
     public void onDestroyView() {
@@ -106,7 +106,7 @@ public class RightFragment extends Fragment {
     }
 
     /**
-     * 当碎片和活动解除关联的时候调用
+     * 当 Fragment 和 Activity 解除关联时调用
      */
     @Override
     public void onDetach() {
