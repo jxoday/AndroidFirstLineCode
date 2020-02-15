@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!-- 数据库名称 -->
+    <dbname value = "BookStore"/>
+    <!-- 数据库版本号-->
+    <version value = "2"/>
+
+    <!-- litepal采取的对象关系映射模式：将面向对象的语言和面向关系的数据库之间建立一种映射关系-->
+    <!-- 指定所有的映射模型-->
+    <list>
+        <!-- 将Book类添加到映射模型列表当中-->
+        <mapping class = "com.example.androidfirstlinecode.sqllite.litepal.Book"/>
+
+        <!-- 将Category类添加到映射模型列表当中-->
+        <mapping class = "com.example.androidfirstlinecode.sqllite.litepal.Category"/>
+    </list>
+</litepal>
