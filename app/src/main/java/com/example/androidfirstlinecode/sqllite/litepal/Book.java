@@ -1,10 +1,12 @@
 package com.example.androidfirstlinecode.sqllite.litepal;
 
+import org.litepal.crud.LitePalSupport;
+
 /**
  * 书籍
  * @author JinXin
  */
-public class Book {
+public class Book extends LitePalSupport {
 
     private int id;
     /**
