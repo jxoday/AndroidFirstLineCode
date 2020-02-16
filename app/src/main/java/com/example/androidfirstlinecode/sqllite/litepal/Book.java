@@ -77,4 +77,16 @@ public class Book extends LitePalSupport {
     public void setPress(String press) {
         this.press = press;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", pages=" + pages +
+                ", name='" + name + '\'' +
+                ", press='" + press + '\'' +
+                '}';
+    }
 }
