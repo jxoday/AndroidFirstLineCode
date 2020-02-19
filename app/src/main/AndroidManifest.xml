@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 监听系统开机广播 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 拨打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".sqllite.litepal.LitePalTestApplication"
@@ -18,6 +20,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
+        <activity android:name=".content_provider.RuntimePermissionTestActivity" />
         <activity android:name=".sqllite.litepal.LitePalTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
