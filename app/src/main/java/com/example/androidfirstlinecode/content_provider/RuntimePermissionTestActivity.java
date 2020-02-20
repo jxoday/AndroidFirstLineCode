@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.androidfirstlinecode.R;
 
@@ -70,6 +71,8 @@ public class RuntimePermissionTestActivity extends AppCompatActivity {
             case 1:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     call();
+                } else {
+                    Toast.makeText(this, "你拒绝开启权限", Toast.LENGTH_LONG).show();
                 }
                 break;
             default:

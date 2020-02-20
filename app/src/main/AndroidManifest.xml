@@ -20,14 +20,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".content_provider.RuntimePermissionTestActivity" />
-        <activity android:name=".sqllite.litepal.LitePalTestActivity">
+        <activity android:name=".content_provider.RuntimePermissionTestActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".sqllite.litepal.LitePalTestActivity" />
         <activity android:name=".sqllite.DatabaseActivity" />
         <activity android:name=".filestore.SharedPreferencesActivity" />
         <activity android:name=".filestore.FileStoreActivity" />
