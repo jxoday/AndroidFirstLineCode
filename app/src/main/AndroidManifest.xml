@@ -9,6 +9,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- 拨打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 访问联系人数据 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".sqllite.litepal.LitePalTestApplication"
@@ -20,14 +22,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".content_provider.ContentResolverTestActivity"></activity>
-        <activity android:name=".content_provider.RuntimePermissionTestActivity">
+        <activity android:name=".content_provider.ContentResolverTestActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".content_provider.RuntimePermissionTestActivity" />
         <activity android:name=".sqllite.litepal.LitePalTestActivity" />
         <activity android:name=".sqllite.DatabaseActivity" />
         <activity android:name=".filestore.SharedPreferencesActivity" />

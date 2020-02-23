@@ -6,4 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".content_provider.ContentResolverTestActivity">
 
+    <ListView
+        android:id="@+id/contacts_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>
