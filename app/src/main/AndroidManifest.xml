@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.androidfirstlinecode">
-
     <!-- 访问系统网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- 监听系统开机广播 -->
@@ -11,9 +10,11 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 访问联系人数据 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".sqllite.litepal.LitePalTestApplication"
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,14 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ffmpeg.ui.FFmpegActivity" >
 
-        <activity android:name=".content_provider.ContentResolverTestActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".content_provider.ContentResolverTestActivity" />
         <activity android:name=".content_provider.RuntimePermissionTestActivity" />
         <activity android:name=".sqllite.litepal.LitePalTestActivity" />
         <activity android:name=".sqllite.DatabaseActivity" />
@@ -43,14 +40,18 @@
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".widget.recycleview.demo.ChatActivity" />
         <activity android:name=".widget.recycleview.RecycleViewActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <receiver
             android:name=".broadcast.example_local_broadcast.ForceOfflineReceiver"
             android:enabled="true"
-            android:exported="true"/>
-
-        <!-- 静态注册广播接收器 -->
+            android:exported="true" /> <!-- 静态注册广播接收器 -->
         <receiver
             android:name=".broadcast.BootCompleteReceiver"
             android:enabled="true"
@@ -60,9 +61,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
-        </receiver>
-
-        <!-- 自定义广播接收器 接收标准广播 -->
+        </receiver> <!-- 自定义广播接收器 接收标准广播 -->
         <receiver
             android:name=".broadcast.MyBroadcastReceiver"
             android:enabled="true"
@@ -70,9 +69,7 @@
             <intent-filter>
                 <action android:name="com.example.broadcasttest.MY_BROADCAST" />
             </intent-filter>
-        </receiver>
-
-        <!-- 有序广播接收器 priority：优先级; 范围-1000~1000 -->
+        </receiver> <!-- 有序广播接收器 priority：优先级; 范围-1000~1000 -->
         <receiver
             android:name=".broadcast.AnotherBroadcastReceiver"
             android:enabled="true"
