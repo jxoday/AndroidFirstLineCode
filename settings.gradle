@@ -1,2 +1,2 @@
-include ':app', ':rxffmpeg',':study_rxjava'
+include ':app', ':rxffmpeg'
 rootProject.name='AndroidFirstLineCode'
